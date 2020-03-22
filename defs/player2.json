@@ -1,0 +1,31 @@
+{
+    "name": "Player2",
+    "type": "dynamic",
+    "description": "Player 2 model on bottom side of battlefield",
+    "shape": [
+      { "x": 10, "y": -10 },
+      { "x": 2, "y": -10 },
+      { "x": 2, "y": -12 },
+      { "x": 6, "y": -12 },
+      { "x": 6, "y": -16 },
+      { "x": 4, "y": -16 },
+      { "x": 4, "y": -14 },
+      { "x": -4, "y": -14 },
+      { "x": -4, "y": -16},
+      { "x": -6, "y": -16 },
+      { "x": -6, "y": -12 },
+      { "x": -2, "y": -12 },
+      { "x": -2, "y": -10 },
+      { "x": -10, "y": -10 },
+      { "x": -10, "y": 10 },
+      { "x": 10, "y": 10 }
+    ],
+    "friction": {
+      "collision": 0,
+      "linear": 0,
+      "rotational": 0
+    },
+    "sensors": [],
+    "mass": 1,    
+    "controller": "lib/Player2.so"
+}
