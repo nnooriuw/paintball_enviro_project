@@ -22,9 +22,9 @@ class Player2Controller : public Process, public AgentInterface
             if ( k == "Shift" && !FIRING )
             {
                   Agent& bullet2 = add_agent("Bullet2",
-                    x() + 17*cos(angle()),
-                    y() + 17*sin(angle()),
-                    angle() - 70,
+                    x() + 17*cos(angle()) * -0.001,
+                    y() + 17*sin(angle())-25.0,
+                    angle() - 1.5708,
                     BULLET_STYLE2);
                     bullet2.apply_force(100,0);
                   FIRING = true;
