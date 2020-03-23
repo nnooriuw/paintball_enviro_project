@@ -86,12 +86,27 @@ class Player2Controller : public Process, public AgentInterface
             damp_movement();
         }
 
+        watch("p1_hit", [&](Event &e)
+        {
+            p1_hit = true;
+        });
+
+        if (p1_hit == true)
+        {
+            p2_score = p2_score + 1;
+            p1_hit = false;
+        }
+
+        label("Player 2 Score: " + std::to_string((int)p2_score), -50, 50);
+
     }
 
     void stop() {}
 
     bool LEFT, RIGHT, STOP, FIRING;
+    bool p1_hit = false;
     double vx;
+    double p2_score = 0;
 
     const double VEL_X = 20;
     const double K_X = 15;

@@ -86,12 +86,27 @@ class Player1Controller : public Process, public AgentInterface
             damp_movement();
         }
 
+        watch("p2_hit", [&](Event &e)
+        {
+            p2_hit = true;
+        });
+
+        if (p2_hit)
+        {
+            p1_score = p1_score + 1;
+            p2_hit = false;
+        }
+
+        label("Player 1 Score: " + std::to_string(p1_score), -50, -40);
+
     }
 
     void stop() {}
 
     bool LEFT, RIGHT, STOP, FIRING;
+    bool p2_hit = false;
     double vx;
+    int p1_score = 0;
 
     const double VEL_X = 20;
     const double K_X = 15;

@@ -20,6 +20,7 @@ class Bullet1Controller : public Process, public AgentInterface
         notice_collisions_with("Player2", [&](Event &e)
         {
             remove_agent(id());
+            p2_hit = true;
         });  
     }
 
@@ -27,15 +28,23 @@ class Bullet1Controller : public Process, public AgentInterface
 
     void update()
     {
-        if ( counter++ > 15 )
+        if ( counter++ > 8 )
         {
             remove_agent(id());
         }
+
+        if (p2_hit = true)
+        {
+            emit(Event("p2_hit"));
+            p2_hit = false;
+        }
+
     }
 
     void stop() {}
 
     double counter;
+    bool p2_hit = false;
 
 };
 
