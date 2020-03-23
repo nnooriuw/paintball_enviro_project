@@ -7,17 +7,23 @@
 
 using namespace enviro;
 
+//! class for the Player 1 Model Controller
 class Player1Controller : public Process, public AgentInterface
 {
 
     public:
     Player1Controller() : Process(), AgentInterface(), LEFT(false), RIGHT(false), FIRING(false) {}
 
+    //! Initialize physical attributes and Events to watch for
     void init()
     {
+        //! Only allows Left and Right movement
         prevent_rotation();
+
+        //! Watch for Player 1 key presses
         watch("keydown", [&](Event &e)
         {
+            //! Fire bullet when space key press detected
             auto k = e.value()["key"].get<std::string>();
             if ( k == " " && !FIRING )
             {
@@ -29,11 +35,13 @@ class Player1Controller : public Process, public AgentInterface
                     bullet1.apply_force(100,0);
                   FIRING = true;
             }
+            //! Move Left if 'a' key pressed
             else if ( k == "a" ) 
             {
                 LEFT = true;
                 STOP = false;
             }
+            //! Move Right if 'd' key pressed
             else if ( k == "d" ) 
             {
                 RIGHT = true;
@@ -41,6 +49,7 @@ class Player1Controller : public Process, public AgentInterface
             }
         });
 
+        //! Switch flag states when keyup detected from Player 1
         watch("keyup", [&](Event &e)
         {
             auto k = e.value()["key"].get<std::string>();
@@ -63,6 +72,8 @@ class Player1Controller : public Process, public AgentInterface
 
     void start() {}
 
+    //! Update movement of Player 1 model based on flag events
+    //! Use physics formulas from Dr. Klavin's enviro examples
     void update() 
     {
         double fx;
@@ -86,17 +97,20 @@ class Player1Controller : public Process, public AgentInterface
             damp_movement();
         }
 
+        //! Watch for Player 2 hit emit event
         watch("p2_hit", [&](Event &e)
         {
             p2_hit = true;
         });
 
+        //! Increment Player 1 score if Player 2 was hit by Player 1 bullet
         if (p2_hit)
         {
             p1_score = p1_score + 1;
             p2_hit = false;
         }
 
+        //! Display Player 1's score
         label("Player 1 Score: " + std::to_string(p1_score), -50, -40);
 
     }
@@ -114,6 +128,7 @@ class Player1Controller : public Process, public AgentInterface
 
 };
 
+//! Class for Player 1 Agent
 class Player1 : public Agent
 {
     public:

@@ -5,6 +5,7 @@
 
 using namespace enviro;
 
+//! Define the Bullet styles for Player 1 and 2
 const json  BULLET_STYLE1 = { 
                 {"fill", "red"}, 
                 {"stroke", "#888"}, 

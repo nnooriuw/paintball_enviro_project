@@ -5,18 +5,22 @@
 
 using namespace enviro;
 
+//! class for the Player 1 Bullet Controller
 class Bullet1Controller : public Process, public AgentInterface
 {
 
     public:
     Bullet1Controller() : Process(), AgentInterface(), counter(0) {}
 
+    //! Watch for collisions with opposing player and their bullets
     void init()
     {
+        //! If collision with opposing player bullet, remove the bullet
         notice_collisions_with("Bullet2", [&](Event &e)
         {
             remove_agent(id());
         });
+        //! If collision with opposing player, remove bullet and set flag
         notice_collisions_with("Player2", [&](Event &e)
         {
             remove_agent(id());
@@ -26,6 +30,8 @@ class Bullet1Controller : public Process, public AgentInterface
 
     void start() {}
 
+    //! Remove bullet if no collisions
+    //! Emit event if Player 2 is hit
     void update()
     {
         if ( counter++ > 8 )
@@ -48,6 +54,7 @@ class Bullet1Controller : public Process, public AgentInterface
 
 };
 
+//! Class for Player 1 Bullet
 class Bullet1 : public Agent 
 {
     public:
