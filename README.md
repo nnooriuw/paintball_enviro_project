@@ -35,9 +35,10 @@ Player 1 uses `Space` to fire bullets.
 Player 2 uses `LeftArrow` and `RightArrow` to move left and right, respectively.
 Player 2 uses `Shift` to fire bullets.
 ### Game Objective
-Players must fire paintball bullets at the opposing player. Incoming paintball bullets can either dodged by moving, or blown up by shooting the opposing players incoming bullets. Score is kept track by how many times a player's bullets collided with the opposing player model.
+Players must fire paintball bullets at the opposing player. Incoming paintball bullets can either dodged by moving, or destroyed by shooting the opposing players incoming bullets. Score is kept track by how many times a player's bullets collided with the opposing player model.
 
 ## Acknowledgements
 The goal of the Final Project is to utilize the [Enviro](https://github.com/klavinslab/enviro.git) repository made by Dr. Eric Klavins (University of Washington Department of Electrical and Computer Engineering Professor). 
 ENVIRO is The multi-agent, multi-user, multi-everything simulator.
 Enviro also builds upon [Elma](https://github.com/klavinslab/elma.git), which is an event loop and process manager for embedded and reactive systems, also developed by Dr. Klavins.
+Paintball was built upon utilizing the Enviro examples provided by Dr. Klavins.
