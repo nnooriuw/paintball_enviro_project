@@ -14,7 +14,19 @@ At the point of this commit to the repo, the score counter does not work. It inc
 Future implementation can be made to integrate the game such that it can be played between players on different Web Browsers. This will allow ease of play, as currently the game is only playable on a single Web Browser; the players need to share the keyboard which can be cumbersome. 
 
 ## How to Install and Run the Code
-1. Clone the [Paintball Enviro Project GitHub] (https://github.com/nnooriuw/paintball_enviro_project.git) repository
+1. Clone the [Paintball Enviro Project GitHub](https://github.com/nnooriuw/paintball_enviro_project.git) repository.
+2. Using the terminal, cd into the '/paintball_enviro_project' directory
+3. Using the terminal, run the following docker image 'docker run -p80:80 -p8765:8765 -v $PWD:/source -it klavins/enviro:v1.61 bash
+'
+4. Using the terminal, run the command 'esm start'
+5. Using the terminal, run the command 'make'
+6. Using the terminal, run the command 'enviro'
+7. Using a Web Browser, navigate to 'http://localhost'
+8. Paintball should now have started in your Web Browser.
+9. You can press 'Ctrl-C' at the 'bash' interface to stop the enviro server
+
+## How to Play
+
 
 ## Acknowledgements
 The goal of the Final Project is to utilize the (https://github.com/klavinslab/enviro.git "Enviro") repository made by Dr. Eric Klavins (University of Washington Department of Electrical and Computer Engineering Professor). 
